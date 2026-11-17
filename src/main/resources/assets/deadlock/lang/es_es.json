@@ -1,5 +1,20 @@
 {
   "key.category.deadlock.inputs": "Deadlock",
-  "key.deadlock.open_options": "Abrir el menú de configuración de Deadlock",
-  "screen.deadlock.options": "Deadlock"
+  "key.deadlock.open_config": "Abrir el menú de configuración de Deadlock",
+  "screen.deadlock.config": "Menú de configuración de Deadlock",
+  "screen.deadlock.config.save": "Guardar configuración",
+  "screen.deadlock.config.purgatory": "Eventos del purgatorio",
+  "screen.deadlock.config.purgatory.events": "Purgatorio",
+  "screen.deadlock.config.purgatory.enable": "Activado",
+  "screen.deadlock.config.purgatory.disable": "Desactivado",
+  "screen.deadlock.config.purgatory.duration": "Duración en minutos de los eventos: %s",
+  "screen.deadlock.config.purgatory.stackable": "Eventos con duración acumulable",
+  "screen.deadlock.config.purgatory.weather": "",
+  "screen.deadlock.config.purgatory.buffs": "",
+  "screen.deadlock.config.purgatory.speed": "",
+  "screen.deadlock.config.purgatory.strength": "",
+  "screen.deadlock.config.purgatory.resistance": "",
+  "screen.deadlock.config.purgatory.health": "",
+  "screen.deadlock.config.purgatory.reductor": "",
+  "screen.deadlock.config.purgatory.min": ""
 }

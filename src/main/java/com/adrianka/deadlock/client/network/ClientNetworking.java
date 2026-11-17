@@ -1,8 +1,9 @@
 package com.adrianka.deadlock.client.network;
 
 import com.adrianka.deadlock.Deadlock;
-import com.adrianka.deadlock.client.gui.purgatory.PurgatoryClientData;
-import com.adrianka.deadlock.server.network.PurgatorySyncPayload;
+import com.adrianka.deadlock.client.data.PurgatoryClientData;
+import com.adrianka.deadlock.network.purgatory.PurgatoryEventsDataPayload;
+import com.adrianka.deadlock.network.purgatory.PurgatoryTimerTicksSyncPayload;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -13,15 +14,13 @@ public class ClientNetworking {
     @SubscribeEvent
     public static void registerClientPayloads(RegisterClientPayloadHandlersEvent event) {
         event.register(
-                PurgatorySyncPayload.TYPE,
-                (payload, context) -> {
-                    Deadlock.LOGGER.info(
-                            "Received PurgatorySyncPayload: {}",
-                            payload.ticks()
-                    );
+                PurgatoryTimerTicksSyncPayload.TYPE,
+                (payload, _) -> PurgatoryClientData.setPurgatoryTicks(payload.ticks())
+        );
 
-                    PurgatoryClientData.setPurgatoryTicks(payload.ticks());
-                }
+        event.register(
+                PurgatoryEventsDataPayload.TYPE,
+                ((payload, _) -> PurgatoryClientData.applySync(payload.dataSync()))
         );
     }
 

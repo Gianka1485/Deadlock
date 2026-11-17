@@ -2,7 +2,7 @@ package com.adrianka.deadlock;
 
 import com.adrianka.deadlock.client.input.DeadlockKeyMappings;
 import com.adrianka.deadlock.event.DeadlockEvents;
-import com.adrianka.deadlock.server.network.DeadlockNetworking;
+import com.adrianka.deadlock.network.DeadlockNetworking;
 import net.neoforged.neoforge.common.NeoForge;
 import org.slf4j.Logger;
 

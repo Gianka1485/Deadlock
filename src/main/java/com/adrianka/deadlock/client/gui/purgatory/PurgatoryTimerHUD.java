@@ -1,6 +1,7 @@
 package com.adrianka.deadlock.client.gui.purgatory;
 
 import com.adrianka.deadlock.Deadlock;
+import com.adrianka.deadlock.client.data.PurgatoryClientData;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -55,9 +56,7 @@ public class PurgatoryTimerHUD {
 
         int x = (int) (graphics.guiWidth() - marginRight - panelWidth * scale);
 
-        int y = (int) (
-                graphics.guiHeight() - marginBottom - panelHeight * scale
-        );
+        int y = (int) (graphics.guiHeight() - marginBottom - panelHeight * scale);
 
         graphics.pose().pushMatrix();
 

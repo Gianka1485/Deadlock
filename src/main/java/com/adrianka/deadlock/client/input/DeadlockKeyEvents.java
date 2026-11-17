@@ -1,7 +1,7 @@
 package com.adrianka.deadlock.client.input;
 
 import com.adrianka.deadlock.Deadlock;
-import com.adrianka.deadlock.client.gui.DeadlockOptionsScreen;
+import com.adrianka.deadlock.client.gui.DeadlockConfigScreen;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.neoforged.api.distmarker.Dist;
@@ -17,9 +17,7 @@ public class DeadlockKeyEvents {
             Minecraft minecraft = Minecraft.getInstance();
 
             if (minecraft.gui.screen() == null)
-                minecraft.setScreenAndShow(
-                        new DeadlockOptionsScreen(Component.translatable("screen." + Deadlock.MODID + ".options"))
-                );
+                minecraft.setScreenAndShow(new DeadlockConfigScreen(Component.translatable("screen." + Deadlock.MODID + ".options")));
         }
     }
 }

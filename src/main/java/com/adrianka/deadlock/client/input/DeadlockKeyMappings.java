@@ -7,11 +7,10 @@ import net.minecraft.resources.Identifier;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
 
 public class DeadlockKeyMappings {
-    public static final KeyMapping.Category CATEGORY =
-            new KeyMapping.Category(Identifier.fromNamespaceAndPath(Deadlock.MODID, "inputs"));
+    public static final KeyMapping.Category CATEGORY = new KeyMapping.Category(Identifier.fromNamespaceAndPath(Deadlock.MODID, "inputs"));
 
     public static final KeyMapping OPEN_OPTIONS = new KeyMapping(
-            "key." + Deadlock.MODID + ".open_options",
+            "key." + Deadlock.MODID + ".open_config",
             InputConstants.Type.KEYBOARD,
             InputConstants.KEY_F10,
             CATEGORY

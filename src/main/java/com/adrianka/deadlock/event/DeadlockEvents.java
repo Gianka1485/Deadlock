@@ -1,11 +1,12 @@
 package com.adrianka.deadlock.event;
 
-import com.adrianka.deadlock.data.DeathEventsData;
+import com.adrianka.deadlock.data.PurgatoryEventsData;
 import com.adrianka.deadlock.data.PurgatoryTimerTicks;
-import com.adrianka.deadlock.entity.EnemyEffectsOnPlayerDeath;
+import com.adrianka.deadlock.entity.PurgatoryEnemyEffects;
+import com.adrianka.deadlock.network.purgatory.PurgatoryEventsDataPayload;
 import com.adrianka.deadlock.player.ModifyPlayerMaxHealth;
-import com.adrianka.deadlock.server.network.PurgatorySyncPayload;
-import com.adrianka.deadlock.world.DeathWeather;
+import com.adrianka.deadlock.network.purgatory.PurgatoryTimerTicksSyncPayload;
+import com.adrianka.deadlock.world.PurgatoryWeather;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -23,9 +24,11 @@ public class DeadlockEvents {
     public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
 
-        DeathEventsData deathEventsData = DeathEventsData.getInstance(player.level().getServer());
+        PurgatoryEventsData purgatoryEventsData = PurgatoryEventsData.getInstance(player.level().getServer());
 
-        PacketDistributor.sendToPlayer(player, new PurgatorySyncPayload(deathEventsData.getDeathEventsTimerTicks()));
+        PacketDistributor.sendToPlayer(player, new PurgatoryTimerTicksSyncPayload(purgatoryEventsData.getPurgatoryEventsTimerTicks()));
+
+        PacketDistributor.sendToPlayer(player, PurgatoryEventsDataPayload.from(purgatoryEventsData));
     }
 
     @SubscribeEvent
@@ -34,19 +37,19 @@ public class DeadlockEvents {
 
         MinecraftServer server = player.level().getServer();
 
-        DeathEventsData deathEventsData = DeathEventsData.getInstance(server);
+        PurgatoryEventsData purgatoryEventsData = PurgatoryEventsData.getInstance(server);
 
-        if (!deathEventsData.isAllDeathEventsEnabled()) return;
+        if (!purgatoryEventsData.isPurgatoryEventsEnabled()) return;
 
-        deathEventsData.activeDeathEvents(true);
+        purgatoryEventsData.setPurgatoryEventsActive(true);
 
-        PurgatoryTimerTicks.init(deathEventsData);
+        PurgatoryTimerTicks.init(purgatoryEventsData);
 
-        DeathWeather.init(deathEventsData, server);
+        PurgatoryWeather.init(purgatoryEventsData, server);
 
-        EnemyEffectsOnPlayerDeath.init(deathEventsData, server);
+        PurgatoryEnemyEffects.init(purgatoryEventsData, server);
 
-        ModifyPlayerMaxHealth.reduceMaxHealthAttachment(player, deathEventsData);
+        ModifyPlayerMaxHealth.reduceMaxHealthAttachment(player, purgatoryEventsData);
     }
 
     @SubscribeEvent
@@ -60,16 +63,16 @@ public class DeadlockEvents {
     public static void onEnemyMobSpawn(FinalizeSpawnEvent event) {
         if (!(event.getEntity() instanceof Enemy)) return;
 
-        DeathEventsData deathEventsData = DeathEventsData.getInstance(event.getLevel().getServer());
+        PurgatoryEventsData purgatoryEventsData = PurgatoryEventsData.getInstance(event.getLevel().getServer());
 
-        EnemyEffectsOnPlayerDeath.onEnemyMobSpawn(deathEventsData, event.getEntity());
+        PurgatoryEnemyEffects.onEnemyMobSpawn(purgatoryEventsData, event.getEntity());
 }
 
     @SubscribeEvent
     public static void onServerTick(ServerTickEvent.Post event) {
-        DeathEventsData deathEventsData = DeathEventsData.getInstance(event.getServer());
+        PurgatoryEventsData purgatoryEventsData = PurgatoryEventsData.getInstance(event.getServer());
 
-        PurgatoryTimerTicks.reduceEventTimerTicks(deathEventsData);
+        PurgatoryTimerTicks.reduceEventTimerTicks(purgatoryEventsData);
     }
 
     /*@SubscribeEvent
@@ -87,8 +90,8 @@ public class DeadlockEvents {
 
         if (level != server.overworld()) return;
 
-        DeathEventsData deathEventsData = DeathEventsData.getInstance(level.getServer());
+        PurgatoryEventsData purgatoryEventsData = PurgatoryEventsData.getInstance(level.getServer());
 
-        PurgatoryTimerTicks.saveData(deathEventsData);
+        PurgatoryTimerTicks.saveData(purgatoryEventsData);
     }
 }
