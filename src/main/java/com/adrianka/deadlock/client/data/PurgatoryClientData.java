@@ -19,6 +19,7 @@ public final class PurgatoryClientData {
                 dataSync.getPurgatoryEventsDuration(),
                 dataSync.isPurgatoryEventsStackEnable(),
                 dataSync.isPurgatoryRainEnable(),
+                dataSync.isPurgatoryRainSkip(),
                 dataSync.isEnemyBuffsEnable(),
                 dataSync.getEnemyBuffAmplifier(),
                 dataSync.isEnemySpeedEnable(),

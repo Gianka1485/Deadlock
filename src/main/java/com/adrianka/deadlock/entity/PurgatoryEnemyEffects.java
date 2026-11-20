@@ -2,7 +2,7 @@ package com.adrianka.deadlock.entity;
 
 import com.adrianka.deadlock.Deadlock;
 import com.adrianka.deadlock.data.PurgatoryEventsData;
-import com.adrianka.mcenhancedlib.entity.MCELModifyEntityProperties;
+import com.adrianka.mcenhancedlib.server.entity.MCELModifyEntityProperties;
 import net.minecraft.core.Holder;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;

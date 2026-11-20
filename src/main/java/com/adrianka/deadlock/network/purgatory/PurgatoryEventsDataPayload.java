@@ -20,6 +20,7 @@ public record PurgatoryEventsDataPayload(PurgatoryEventsDataSync dataSync) imple
                         purgatoryEventsData.getPurgatoryEventsDuration() / 20,
                         purgatoryEventsData.isPurgatoryEventsStackEnabled(),
                         purgatoryEventsData.isPurgatoryRainEnabled(),
+                        purgatoryEventsData.isPurgatoryRainSkip(),
                         purgatoryEventsData.isEnemyEffectsEnabled(),
                         purgatoryEventsData.getEnemyBuffAmplifier(),
                         purgatoryEventsData.isEnemySpeedEnabled(),

@@ -3,7 +3,6 @@ package com.adrianka.deadlock.network.purgatory;
 import com.adrianka.deadlock.Deadlock;
 import com.adrianka.deadlock.data.PurgatoryEventsData;
 import net.minecraft.network.RegistryFriendlyByteBuf;
-import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.Identifier;
@@ -23,7 +22,7 @@ public record SetPurgatoryEventsDataPayload(PurgatoryEventsDataSync dataSync) im
     private static final double MAX_HEALTH_REDUCER_VALUE = -2.0;
 
     private static final double MIN_HEALTH_VALUE = -18.0;
-    private static final double MAX_HEALTH_VALUE = -2.0;
+    private static final double MAX_HEALTH_VALUE = 0;
 
     public static final Type<SetPurgatoryEventsDataPayload> TYPE = new Type<>(Identifier.fromNamespaceAndPath(Deadlock.MODID, "set_purgatory_events_data_sync"));
 
@@ -42,6 +41,7 @@ public record SetPurgatoryEventsDataPayload(PurgatoryEventsDataSync dataSync) im
         purgatoryEventsData.setPurgatoryEventsDuration(Math.clamp(payload.getPurgatoryEventsDuration() * 20, MIN_PURGATORY_DURATION, MAX_PURGATORY_DURATION));
         purgatoryEventsData.setPurgatoryEventsStackEnabled(payload.isPurgatoryEventsStackEnable());
         purgatoryEventsData.setPurgatoryRainEnabled(payload.isPurgatoryRainEnable());
+        purgatoryEventsData.setPurgatoryRainSkip(payload.isPurgatoryRainSkip());
         purgatoryEventsData.setEnemyEffectsEnabled(payload.isEnemyBuffsEnable());
         purgatoryEventsData.setEnemyBuffAmplifier(Math.clamp(payload.getEnemyBuffAmplifier(), MIN_BUFF_AMPLIFIER, MAX_BUFF_AMPLIFIER));
         purgatoryEventsData.setEnemySpeedEnabled(payload.isEnemySpeedEnable());

@@ -2,7 +2,7 @@ package com.adrianka.deadlock.world;
 
 import com.adrianka.deadlock.Deadlock;
 import com.adrianka.deadlock.data.PurgatoryEventsData;
-import com.adrianka.mcenhancedlib.world.MCELModifyWorldServer;
+import com.adrianka.mcenhancedlib.server.world.MCELModifyWorldServer;
 import net.minecraft.server.MinecraftServer;
 
 public class PurgatoryWeather {

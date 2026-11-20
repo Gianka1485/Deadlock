@@ -9,9 +9,10 @@ import java.util.Objects;
 public class PurgatoryEventsDataSync {
     private boolean purgatoryEventsEnable;
     private int purgatoryEventsDuration;
-
     private boolean purgatoryEventsStackEnable;
+
     private boolean purgatoryRainEnable;
+    private boolean purgatoryRainSkip;
 
     private boolean enemyBuffsEnable;
     private int enemyBuffAmplifier;
@@ -29,6 +30,7 @@ public class PurgatoryEventsDataSync {
                     ByteBufCodecs.VAR_INT, PurgatoryEventsDataSync::getPurgatoryEventsDuration,
                     ByteBufCodecs.BOOL, PurgatoryEventsDataSync::isPurgatoryEventsStackEnable,
                     ByteBufCodecs.BOOL, PurgatoryEventsDataSync::isPurgatoryRainEnable,
+                    ByteBufCodecs.BOOL, PurgatoryEventsDataSync::isPurgatoryRainSkip,
                     ByteBufCodecs.BOOL, PurgatoryEventsDataSync::isEnemyBuffsEnable,
                     ByteBufCodecs.VAR_INT, PurgatoryEventsDataSync::getEnemyBuffAmplifier,
                     ByteBufCodecs.BOOL, PurgatoryEventsDataSync::isEnemySpeedEnable,
@@ -45,6 +47,7 @@ public class PurgatoryEventsDataSync {
             int purgatoryEventsDuration,
             boolean purgatoryEventsStackEnabled,
             boolean purgatoryRainEnabled,
+            boolean purgatoryRainSkip,
             boolean enemyBuffEffectsEnabled,
             int enemyBuffAmplifier,
             boolean enemySpeedEnabled,
@@ -58,6 +61,7 @@ public class PurgatoryEventsDataSync {
         this.purgatoryEventsDuration = purgatoryEventsDuration;
         this.purgatoryEventsStackEnable = purgatoryEventsStackEnabled;
         this.purgatoryRainEnable = purgatoryRainEnabled;
+        this.purgatoryRainSkip = purgatoryRainSkip;
         this.enemyBuffsEnable = enemyBuffEffectsEnabled;
         this.enemyBuffAmplifier = enemyBuffAmplifier;
         this.enemySpeedEnable = enemySpeedEnabled;
@@ -79,6 +83,9 @@ public class PurgatoryEventsDataSync {
 
     public boolean isPurgatoryRainEnable() { return purgatoryRainEnable; }
     public void setPurgatoryRainEnable(boolean isEnable) { purgatoryRainEnable = isEnable; }
+
+    public boolean isPurgatoryRainSkip() { return purgatoryRainSkip; }
+    public void setPurgatoryRainSkip(boolean isEnable) { purgatoryRainSkip = isEnable; }
 
     public boolean isEnemyBuffsEnable() { return enemyBuffsEnable; }
     public void setEnemyBuffsEnable(boolean isEnable) { enemyBuffsEnable = isEnable; }
@@ -113,6 +120,7 @@ public class PurgatoryEventsDataSync {
                 && purgatoryEventsDuration == other.purgatoryEventsDuration
                 && purgatoryEventsStackEnable == other.purgatoryEventsStackEnable
                 && purgatoryRainEnable == other.purgatoryRainEnable
+                && purgatoryRainSkip == other.purgatoryRainSkip
                 && enemyBuffsEnable == other.enemyBuffsEnable
                 && enemyBuffAmplifier == other.enemyBuffAmplifier
                 && enemySpeedEnable == other.enemySpeedEnable
@@ -130,6 +138,7 @@ public class PurgatoryEventsDataSync {
                 purgatoryEventsDuration,
                 purgatoryEventsStackEnable,
                 purgatoryRainEnable,
+                purgatoryRainSkip,
                 enemyBuffsEnable,
                 enemyBuffAmplifier,
                 enemySpeedEnable,

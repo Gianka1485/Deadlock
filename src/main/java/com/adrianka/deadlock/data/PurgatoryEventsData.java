@@ -1,7 +1,7 @@
 package com.adrianka.deadlock.data;
 
 import com.adrianka.deadlock.Deadlock;
-import com.adrianka.mcenhancedlib.data.MCELDataState;
+import com.adrianka.mcenhancedlib.server.data.MCELDataState;
 import com.mojang.serialization.Codec;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.saveddata.SavedData;
@@ -22,6 +22,7 @@ public class PurgatoryEventsData extends SavedData {
                             Codec.INT.fieldOf("purgatory_events_counter").forGetter(PurgatoryEventsData::getPurgatoryEventsTimerTicks),
                             Codec.BOOL.fieldOf("purgatory_events_stack_enabled").forGetter(PurgatoryEventsData::isPurgatoryEventsStackEnabled),
                             Codec.BOOL.fieldOf("purgatory_rain_enabled").forGetter(PurgatoryEventsData::isPurgatoryRainEnabled),
+                            Codec.BOOL.fieldOf("purgatory_rain_skip").forGetter(PurgatoryEventsData::isPurgatoryRainSkip),
                             Codec.BOOL.fieldOf("enemy_effects_enabled").forGetter(PurgatoryEventsData::isEnemyEffectsEnabled),
                             Codec.INT.fieldOf("enemy_buff_amplifier").forGetter(PurgatoryEventsData::getEnemyBuffAmplifier),
                             Codec.BOOL.fieldOf("enemy_speed_enabled").forGetter(PurgatoryEventsData::isEnemySpeedEnabled),
@@ -38,7 +39,9 @@ public class PurgatoryEventsData extends SavedData {
     private int purgatoryEventsDuration;
     private int purgatoryEventsTimerTicks;
     private boolean purgatoryEventsStackEnabled;
+
     private boolean purgatoryRainEnabled;
+    private boolean purgatoryRainSkip;
 
     private boolean enemyEffectsEnabled;
     private int enemyBuffAmplifier;
@@ -58,6 +61,7 @@ public class PurgatoryEventsData extends SavedData {
                 0,
                 true,
                 true,
+                false,
                 true,
                 0,
                 true,
@@ -76,6 +80,7 @@ public class PurgatoryEventsData extends SavedData {
             int purgatoryEventsTimerTicks,
             boolean purgatoryEventsStackEnabled,
             boolean purgatoryRainEnabled,
+            boolean purgatoryRainSkip,
             boolean enemyEffectsEnabled,
             int enemyBuffAmplifier,
             boolean enemySpeedEnabled,
@@ -90,7 +95,9 @@ public class PurgatoryEventsData extends SavedData {
         this.purgatoryEventsDuration = purgatoryEventsDuration;
         this.purgatoryEventsTimerTicks = purgatoryEventsTimerTicks;
         this.purgatoryEventsStackEnabled = purgatoryEventsStackEnabled;
+
         this.purgatoryRainEnabled = purgatoryRainEnabled;
+        this.purgatoryRainSkip = purgatoryRainSkip;
 
         this.enemyEffectsEnabled = enemyEffectsEnabled;
         this.enemyBuffAmplifier = enemyBuffAmplifier;
@@ -135,6 +142,12 @@ public class PurgatoryEventsData extends SavedData {
     public boolean isPurgatoryRainEnabled() { return purgatoryRainEnabled;}
     public void setPurgatoryRainEnabled(boolean enabled) {
         purgatoryRainEnabled = enabled;
+        setDirty();
+    }
+
+    public boolean isPurgatoryRainSkip() { return purgatoryRainSkip; }
+    public void setPurgatoryRainSkip(boolean enabled) {
+        purgatoryRainSkip = enabled;
         setDirty();
     }
 

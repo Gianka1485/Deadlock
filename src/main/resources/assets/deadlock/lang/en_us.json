@@ -9,12 +9,14 @@
   "screen.deadlock.config.purgatory.disable": "Disable",
   "screen.deadlock.config.purgatory.duration": "Events minutes duration: %s",
   "screen.deadlock.config.purgatory.stackable": "Events duration stackable",
-  "screen.deadlock.config.purgatory.weather": "",
-  "screen.deadlock.config.purgatory.buffs": "",
-  "screen.deadlock.config.purgatory.speed": "",
-  "screen.deadlock.config.purgatory.strength": "",
-  "screen.deadlock.config.purgatory.resistance": "",
-  "screen.deadlock.config.purgatory.health": "",
-  "screen.deadlock.config.purgatory.reductor": "",
-  "screen.deadlock.config.purgatory.min": ""
+  "screen.deadlock.config.purgatory.weather": "Purgatory rain",
+  "screen.deadlock.config.purgatory.skip": "Purgatory rain skip",
+  "screen.deadlock.config.purgatory.buffs": "Enemy buffs",
+  "screen.deadlock.config.purgatory.amplifier": "Enemy buffs amplifier: %s",
+  "screen.deadlock.config.purgatory.speed": "Enemy speed buff",
+  "screen.deadlock.config.purgatory.strength": "Enemy strength buff",
+  "screen.deadlock.config.purgatory.resistance": "Enemy resistance buff",
+  "screen.deadlock.config.purgatory.health": "Reduce player max health",
+  "screen.deadlock.config.purgatory.reductor": "Reducer health value: %s",
+  "screen.deadlock.config.purgatory.min": "Min player max health: %s"
 }

@@ -2,8 +2,8 @@ package com.adrianka.deadlock.player;
 
 import com.adrianka.deadlock.Deadlock;
 import com.adrianka.deadlock.data.PurgatoryEventsData;
-import com.adrianka.mcenhancedlib.attachment.MCELAttachments;
-import com.adrianka.mcenhancedlib.entity.MCELModifyPlayerProperties;
+import com.adrianka.mcenhancedlib.server.attachment.MCELAttachments;
+import com.adrianka.mcenhancedlib.server.entity.MCELModifyPlayerProperties;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 

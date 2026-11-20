@@ -9,12 +9,14 @@
   "screen.deadlock.config.purgatory.disable": "Desactivado",
   "screen.deadlock.config.purgatory.duration": "Duración en minutos de los eventos: %s",
   "screen.deadlock.config.purgatory.stackable": "Eventos con duración acumulable",
-  "screen.deadlock.config.purgatory.weather": "",
-  "screen.deadlock.config.purgatory.buffs": "",
-  "screen.deadlock.config.purgatory.speed": "",
-  "screen.deadlock.config.purgatory.strength": "",
-  "screen.deadlock.config.purgatory.resistance": "",
-  "screen.deadlock.config.purgatory.health": "",
-  "screen.deadlock.config.purgatory.reductor": "",
-  "screen.deadlock.config.purgatory.min": ""
+  "screen.deadlock.config.purgatory.weather": "Lluvia del purgatorio",
+  "screen.deadlock.config.purgatory.skip": "Omitir la lluvia del purgatorio",
+  "screen.deadlock.config.purgatory.buffs": "Efectos de posión para enemigos",
+  "screen.deadlock.config.purgatory.amplifier": "Amplificador de los efectos de posión: %s",
+  "screen.deadlock.config.purgatory.speed": "Efecto de velocidad",
+  "screen.deadlock.config.purgatory.strength": "Efecto de fuerza",
+  "screen.deadlock.config.purgatory.resistance": "Efecto de resistencia",
+  "screen.deadlock.config.purgatory.health": "Reducir la vida máxima del jugador",
+  "screen.deadlock.config.purgatory.reductor": "Corazones de vida menos: %s",
+  "screen.deadlock.config.purgatory.min": "Valor mínimo de vida del jugador: %s"
 }

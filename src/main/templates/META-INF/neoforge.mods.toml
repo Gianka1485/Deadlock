@@ -38,6 +38,6 @@ config="${mod_id}.mixins.json"
 [[dependencies.${mod_id}]]
     modId="mcenhancedlib"
     type="required"
-    versionRange="[0.1.0,)"
+    versionRange="[0.2.5.1,)"
     ordering="AFTER"
     side="BOTH"
